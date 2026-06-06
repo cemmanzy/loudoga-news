@@ -74,31 +74,31 @@ export default async function ArticlePage({
       )}
 
       <div className="mb-8 flex items-center gap-4 border-b pb-6">
-  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white font-bold">
-    {post.author?.charAt(0) || "L"}
-  </div>
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white font-bold">
+          {post.author?.charAt(0) || "L"}
+        </div>
 
-  <div>
-    <p className="font-semibold">
-      {post.author || "Loudoga News"}
-    </p>
+        <div>
+          <p className="font-semibold">
+            {post.author || "Loudoga News"}
+          </p>
 
-    <p className="text-sm text-slate-500">
-      {post.publishedAt
-        ? new Date(
-            post.publishedAt
-          ).toLocaleDateString(
-            "en-US",
-            {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            }
-          )
-        : ""}
-    </p>
-  </div>
-</div>
+          <p className="text-sm text-slate-500">
+            {post.publishedAt
+              ? new Date(
+                  post.publishedAt
+                ).toLocaleDateString(
+                  "en-US",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }
+                )
+              : ""}
+          </p>
+        </div>
+      </div>
 
       <div className="border-t pt-8">
         <PortableTextContent value={post.body} />
@@ -150,12 +150,18 @@ export async function generateMetadata({
     : undefined;
 
   return {
-    title: post.title,
+    title: `${post.title} | Loudoga News`,
     description: post.excerpt,
+
+    alternates: {
+      canonical: `https://loudoganews.com/news/${slug}`,
+    },
 
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      siteName: "Loudoga News",
+      type: "article",
       images: imageUrl
         ? [imageUrl]
         : [],
