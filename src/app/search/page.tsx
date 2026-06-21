@@ -1,7 +1,3 @@
-import { client } from "@/lib/sanity";
-import {
-  featuredPostQuery,
-} from "@/lib/queries";
 import NewsCard from "@/components/news/NewsCard";
 
 type SearchProps = {
@@ -15,7 +11,7 @@ export default async function SearchPage({
 }: SearchProps) {
   const { q } = await searchParams;
 
-  const posts = [];
+  const posts: any[] = [];
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-12">
