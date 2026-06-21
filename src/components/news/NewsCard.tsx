@@ -16,7 +16,7 @@ export default function NewsCard({
   post,
 }: NewsCardProps) {
   return (
-    <article className="overflow-hidden rounded-xl border bg-white transition hover:shadow-lg">
+    <article className="overflow-hidden rounded-xl border border-[#C9961A]/20 bg-white transition hover:shadow-lg hover:border-[#C9961A]">
       {post.mainImage && (
         <img
           src={urlFor(post.mainImage)
@@ -29,12 +29,12 @@ export default function NewsCard({
       )}
 
       <div className="p-5">
-        <span className="inline-block rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white">
+        <span className="inline-block rounded-full bg-[#C9961A] px-3 py-1 text-xs font-semibold text-white">
           {post.category || "News"}
         </span>
 
         <Link href={`/news/${post.slug}`}>
-          <h2 className="mt-4 text-xl font-bold hover:text-red-600">
+          <h2 className="mt-4 text-xl font-bold transition hover:text-[#C9961A]">
             {post.title}
           </h2>
         </Link>
@@ -45,7 +45,7 @@ export default function NewsCard({
 
         <Link
           href={`/news/${post.slug}`}
-          className="mt-4 inline-block font-semibold text-red-600"
+          className="mt-4 inline-block font-semibold text-[#C9961A] hover:text-[#B8860B]"
         >
           Read More →
         </Link>

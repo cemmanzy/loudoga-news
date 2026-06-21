@@ -1,26 +1,27 @@
 export default function Newsletter() {
   return (
-    <section className="mt-20 rounded-2xl bg-slate-900 px-8 py-16 text-center text-white">
-      <h2 className="text-4xl font-black">
+    <section className="mt-20 rounded-2xl border border-[#C9961A]/30 bg-[#FFF9EC] p-10">
+      <h2 className="text-3xl font-black text-black">
         Stay Updated
       </h2>
 
-      <p className="mt-4 max-w-2xl mx-auto text-slate-300">
-        Get the latest news, interviews, spotlight
-        stories and opinions delivered directly to
+      <p className="mt-3 text-slate-600">
+        Get the latest news, interviews,
+        spotlight stories, business updates,
+        and opinions delivered directly to
         your inbox.
       </p>
 
-      <form className="mt-8 flex flex-col gap-4 md:flex-row md:justify-center">
+      <form className="mt-6 flex flex-col gap-4 md:flex-row">
         <input
           type="email"
-          placeholder="Enter your email address"
-          className="rounded-lg px-4 py-3 bg-white text-black md:w-96"
+          placeholder="Enter your email"
+          className="flex-1 rounded-lg border border-[#C9961A]/30 p-4 focus:border-[#C9961A] focus:outline-none"
         />
 
         <button
           type="submit"
-          className="rounded-lg bg-red-600 px-6 py-3 font-semibold hover:bg-red-700"
+          className="rounded-lg bg-[#C9961A] px-6 py-4 font-semibold text-white transition hover:bg-[#B8860B]"
         >
           Subscribe
         </button>

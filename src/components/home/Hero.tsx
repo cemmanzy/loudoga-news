@@ -15,14 +15,14 @@ export default function Hero({
 }: HeroProps) {
   return (
     <section className="mb-12">
-      <div className="overflow-hidden rounded-2xl border">
+      <div className="overflow-hidden rounded-2xl border border-[#C9961A]/30">
         <div className="grid lg:grid-cols-2">
           <div className="p-10">
-            <span className="inline-block rounded-full bg-red-600 px-3 py-1 text-sm font-medium text-white">
+            <span className="inline-block rounded-full bg-[#C9961A] px-4 py-1 text-sm font-medium text-white">
               Featured Story
             </span>
 
-            <h1 className="mt-6 text-5xl font-black leading-tight">
+            <h1 className="mt-4 text-4xl font-black leading-tight md:text-6xl">
               {title}
             </h1>
 
@@ -32,7 +32,7 @@ export default function Hero({
 
             <Link
               href={`/news/${slug}`}
-              className="mt-8 inline-block rounded-lg bg-slate-900 px-6 py-3 text-white"
+              className="mt-8 inline-block rounded-lg bg-black px-6 py-3 text-white transition hover:bg-[#C9961A]"
             >
               Read Full Story
             </Link>

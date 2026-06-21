@@ -5,6 +5,8 @@ import Hero from "@/components/home/Hero";
 import HomeSection from "@/components/home/HomeSection";
 import NewsCard from "@/components/news/NewsCard";
 import Newsletter from "@/components/home/Newsletter";
+import TrendingStories from "@/components/home/TrendingStories";
+import SocialFollow from "@/components/home/SocialFollow";
 
 import {
   featuredPostQuery,
@@ -13,6 +15,7 @@ import {
   homepageSpotlightQuery,
   homepageInterviewsQuery,
   homepageViewsQuery,
+  trendingPostsQuery
 } from "@/lib/queries";
 
 async function getData() {
@@ -42,6 +45,11 @@ async function getData() {
       homepageViewsQuery
     );
 
+  const trendingPosts =
+  await client.fetch(
+    trendingPostsQuery
+  );
+
   return {
     featuredPost,
     latestPosts,
@@ -49,8 +57,10 @@ async function getData() {
     spotlight,
     interviews,
     views,
+    trendingPosts,
   };
 }
+
 
 export default async function Home() {
   const {
@@ -60,6 +70,7 @@ export default async function Home() {
     spotlight,
     interviews,
     views,
+    trendingPosts
   } = await getData();
 
   return (
@@ -114,7 +125,13 @@ export default async function Home() {
         title="Views"
         posts={views}
       />
+
+      <TrendingStories
+       posts={trendingPosts}
+      />
       <Newsletter />
+
+      <SocialFollow />
     </main>
   );
 }

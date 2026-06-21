@@ -1,18 +1,6 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #111827;
 
-  --primary: #0f172a;
-  --secondary: #475569;
-
-  --accent: #dc2626;
-
-  --border: #e5e7eb;
-
-  --muted: #64748b;
-}
 
 * {
   box-sizing: border-box;
@@ -35,4 +23,30 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.ticker {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: ticker 35s linear infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

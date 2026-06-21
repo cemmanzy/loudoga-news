@@ -39,11 +39,20 @@ export const singlePostQuery = `
   body,
   publishedAt,
   mainImage,
-  "author": author->name,
+  readTime,
+
+  author->{
+    name,
+    bio,
+    image,
+    "slug": slug.current
+  },
+
   "category": category->title,
   "slug": slug.current
 }
 `;
+
 
 export const newsCategoryQuery = `
 *[_type == "post" && category->title == "News"] | order(_createdAt desc){
@@ -157,3 +166,53 @@ export const relatedPostsQuery = `
   "slug": slug.current
 }
 `;
+
+export const authorQuery = `
+*[_type == "author" && slug.current == $slug][0]{
+  _id,
+  name,
+  bio,
+  image,
+  "slug": slug.current
+}
+`;
+
+export const authorPostsQuery = `
+*[_type == "post" && author->slug.current == $slug]
+| order(publishedAt desc){
+  _id,
+  title,
+  excerpt,
+  mainImage,
+  "slug": slug.current,
+  "category": category->title
+}
+`;
+
+export const breakingNewsQuery = `
+*[_type == "post" && isBreaking == true]
+| order(publishedAt desc)[0...10]{
+  _id,
+  title,
+  "slug": slug.current
+}
+`;
+
+export const trendingPostsQuery = `*[_type == "post"] | order(publishedAt desc)[0...6]{   _id,
+  title,
+  excerpt,
+  mainImage,
+  "slug": slug.current,
+  "category": category->title
+}`;
+
+export const mostReadPostsQuery = `
+*[_type == "post"]
+| order(views desc)[0...5]{
+  _id,
+  title,
+  views,
+  "slug": slug.current
+}
+`;
+
