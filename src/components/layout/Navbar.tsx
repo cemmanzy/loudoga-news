@@ -3,9 +3,10 @@ import Container from "@/components/shared/Container";
 
 export default function Navbar() {
   return (
-    <nav className="border-b border-[#C9961A]/20">
+    <nav className="border-b">
       <Container>
-        <div className="flex gap-8 py-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+        <div className="flex gap-6 py-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+
           <Link
             href="/"
             className="hover:text-[#C9961A] transition-colors"
@@ -14,35 +15,70 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="/news"
+            href="/category/news"
             className="hover:text-[#C9961A] transition-colors"
           >
             News
           </Link>
 
           <Link
-            href="/hot-stories"
+            href="/category/business"
+            className="hover:text-[#C9961A] transition-colors"
+          >
+            Business
+          </Link>
+
+          <Link
+            href="/category/politics"
+            className="hover:text-[#C9961A] transition-colors"
+          >
+            Politics
+          </Link>
+
+          <Link
+            href="/category/technology"
+            className="hover:text-[#C9961A] transition-colors"
+          >
+            Technology
+          </Link>
+
+          <Link
+            href="/category/sports"
+            className="hover:text-[#C9961A] transition-colors"
+          >
+            Sports
+          </Link>
+
+          <Link
+            href="/category/entertainment"
+            className="hover:text-[#C9961A] transition-colors"
+          >
+            Entertainment
+          </Link>
+
+          <Link
+            href="/category/hot-stories"
             className="hover:text-[#C9961A] transition-colors"
           >
             Hot Stories
           </Link>
 
           <Link
-            href="/interviews"
+            href="/category/interviews"
             className="hover:text-[#C9961A] transition-colors"
           >
             Interviews
           </Link>
 
           <Link
-            href="/spotlight"
+            href="/category/spotlight"
             className="hover:text-[#C9961A] transition-colors"
           >
             Spotlight
           </Link>
 
           <Link
-            href="/views"
+            href="/category/views"
             className="hover:text-[#C9961A] transition-colors"
           >
             Views
@@ -54,6 +90,7 @@ export default function Navbar() {
           >
             Search
           </Link>
+
         </div>
       </Container>
     </nav>

@@ -216,3 +216,36 @@ export const mostReadPostsQuery = `
 }
 `;
 
+export const searchPostsQuery = `
+*[
+  _type == "post" &&
+  (
+    title match $search + "*" ||
+    excerpt match $search + "*"
+  )
+] | order(publishedAt desc){
+  _id,
+  title,
+  excerpt,
+  mainImage,
+  "slug": slug.current,
+  "category": category->title
+}
+`;
+
+export const categoryPostsQuery = `
+*[
+  _type == "post" &&
+  category->title == $category
+]
+| order(publishedAt desc){
+  _id,
+  title,
+  excerpt,
+  publishedAt,
+  mainImage,
+  "slug": slug.current,
+  "category": category->title
+}
+`;
+
