@@ -8,6 +8,7 @@ type NewsCardProps = {
     excerpt: string;
     slug: string;
     category?: string;
+    publishedAt?: string;
     mainImage?: any;
   };
 };
@@ -15,8 +16,20 @@ type NewsCardProps = {
 export default function NewsCard({
   post,
 }: NewsCardProps) {
+  const formattedDate = post.publishedAt
+    ? new Date(post.publishedAt).toLocaleDateString(
+        "en-US",
+        {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        }
+      )
+    : "";
+
   return (
-    <article className="overflow-hidden rounded-xl border border-[#C9961A]/20 bg-white transition hover:shadow-lg hover:border-[#C9961A]">
+    <article className="overflow-hidden rounded-xl border bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+
       {post.mainImage && (
         <img
           src={urlFor(post.mainImage)
@@ -24,17 +37,28 @@ export default function NewsCard({
             .height(500)
             .url()}
           alt={post.title}
-          className="h-52 w-full object-cover"
+          className="h-56 w-full object-cover"
         />
       )}
 
       <div className="p-5">
-        <span className="inline-block rounded-full bg-[#C9961A] px-3 py-1 text-xs font-semibold text-white">
-          {post.category || "News"}
-        </span>
+
+        <div className="mb-3 flex items-center justify-between">
+
+          <span className="rounded-full bg-[#C9961A] px-3 py-1 text-xs font-semibold text-white">
+            {post.category || "News"}
+          </span>
+
+          {formattedDate && (
+            <span className="text-sm text-slate-500">
+              {formattedDate}
+            </span>
+          )}
+
+        </div>
 
         <Link href={`/news/${post.slug}`}>
-          <h2 className="mt-4 text-xl font-bold transition hover:text-[#C9961A]">
+          <h2 className="text-xl font-bold leading-snug transition hover:text-[#C9961A]">
             {post.title}
           </h2>
         </Link>
@@ -45,10 +69,11 @@ export default function NewsCard({
 
         <Link
           href={`/news/${post.slug}`}
-          className="mt-4 inline-block font-semibold text-[#C9961A] hover:text-[#B8860B]"
+          className="mt-5 inline-block font-semibold text-[#C9961A] hover:underline"
         >
-          Read More →
+          Read Full Story →
         </Link>
+
       </div>
     </article>
   );

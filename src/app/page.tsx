@@ -11,11 +11,8 @@ import SocialFollow from "@/components/home/SocialFollow";
 import {
   featuredPostQuery,
   latestPostsQuery,
-  homepageHotStoriesQuery,
-  homepageSpotlightQuery,
-  homepageInterviewsQuery,
-  homepageViewsQuery,
-  trendingPostsQuery
+  homepageCategoryQuery,
+  trendingPostsQuery,
 } from "@/lib/queries";
 
 async function getData() {
@@ -25,25 +22,59 @@ async function getData() {
   const latestPosts =
     await client.fetch(latestPostsQuery);
 
-  const hotStories =
-    await client.fetch(
-      homepageHotStoriesQuery
-    );
+  const business =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Business" }
+  );
 
-  const spotlight =
-    await client.fetch(
-      homepageSpotlightQuery
-    );
+const politics =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Politics" }
+  );
 
-  const interviews =
-    await client.fetch(
-      homepageInterviewsQuery
-    );
+const technology =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Technology" }
+  );
 
-  const views =
-    await client.fetch(
-      homepageViewsQuery
-    );
+const sports =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Sports" }
+  );
+
+const entertainment =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Entertainment" }
+  );
+
+const hotStories =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Hot Stories" }
+  );
+
+const interviews =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Interviews" }
+  );
+
+const spotlight =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Spotlight" }
+  );
+
+const views =
+  await client.fetch(
+    homepageCategoryQuery,
+    { category: "Views" }
+  );
 
   const trendingPosts =
   await client.fetch(
@@ -51,27 +82,37 @@ async function getData() {
   );
 
   return {
-    featuredPost,
-    latestPosts,
-    hotStories,
-    spotlight,
-    interviews,
-    views,
-    trendingPosts,
-  };
+  featuredPost,
+  latestPosts,
+  business,
+  politics,
+  technology,
+  sports,
+  entertainment,
+  hotStories,
+  interviews,
+  spotlight,
+  views,
+  trendingPosts,
+};
 }
 
 
 export default async function Home() {
   const {
-    featuredPost,
-    latestPosts,
-    hotStories,
-    spotlight,
-    interviews,
-    views,
-    trendingPosts
-  } = await getData();
+  featuredPost,
+  latestPosts,
+  business,
+  politics,
+  technology,
+  sports,
+  entertainment,
+  hotStories,
+  interviews,
+  spotlight,
+  views,
+  trendingPosts,
+} = await getData();
 
   return (
     <main className="max-w-7xl mx-auto px-4 py-8">
@@ -107,24 +148,58 @@ export default async function Home() {
       </section>
 
       <HomeSection
-        title="Hot Stories"
-        posts={hotStories}
-      />
+  title="Business"
+  posts={business}
+  href="/category/business"
+/>
 
-      <HomeSection
-        title="Spotlight"
-        posts={spotlight}
-      />
+<HomeSection
+  title="Politics"
+  posts={politics}
+  href="/category/politics"
+/>
 
-      <HomeSection
-        title="Interviews"
-        posts={interviews}
-      />
+<HomeSection
+  title="Technology"
+  posts={technology}
+  href="/category/technology"
+/>
 
-      <HomeSection
-        title="Views"
-        posts={views}
-      />
+<HomeSection
+  title="Sports"
+  posts={sports}
+  href="/category/sports"
+/>
+
+<HomeSection
+  title="Entertainment"
+  posts={entertainment}
+  href="/category/entertainment"
+/>
+
+<HomeSection
+  title="Hot Stories"
+  posts={hotStories}
+  href="/category/hot-stories"
+/>
+
+<HomeSection
+  title="Interviews"
+  posts={interviews}
+  href="/category/interviews"
+/>
+
+<HomeSection
+  title="Spotlight"
+  posts={spotlight}
+  href="/category/spotlight"
+/>
+
+<HomeSection
+  title="Views"
+  posts={views}
+  href="/category/views"
+/>
 
       <TrendingStories
        posts={trendingPosts}

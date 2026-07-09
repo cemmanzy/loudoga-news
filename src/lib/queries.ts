@@ -15,8 +15,10 @@ export const latestPostsQuery = `
   _id,
   title,
   excerpt,
+  publishedAt,
   mainImage,
-  "slug": slug.current
+  "slug": slug.current,
+  "category": category->title
 }
 `;
 
@@ -249,3 +251,18 @@ export const categoryPostsQuery = `
 }
 `;
 
+export const homepageCategoryQuery = `
+*[
+  _type == "post" &&
+  category->title == $category
+]
+| order(publishedAt desc)[0...3]{
+  _id,
+  title,
+  excerpt,
+   publishedAt,
+  mainImage,
+  "slug": slug.current,
+  "category": category->title
+}
+`;

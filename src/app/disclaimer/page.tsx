@@ -7,25 +7,19 @@ export default function DisclaimerPage() {
 
       <div className="space-y-6 text-lg leading-8 text-slate-700">
         <p>
-          The information published on Loud Oga News & TV is
-          provided for general informational, educational,
-          and news reporting purposes only. While we strive
-          to ensure that all content is accurate, current,
-          and reliable, we make no representations or
-          warranties of any kind, express or implied,
-          regarding the completeness, accuracy, reliability,
-          suitability, or availability of the information,
-          products, services, or related content published
-          on this website.
-        </p>
-
-        <p>
-          Any reliance you place on information obtained
-          from this website is strictly at your own risk.
-          Loud Oga News & TV shall not be held responsible
-          for any loss, damage, inconvenience, or liability
-          arising from the use of information published on
-          this platform.
+          The content published on Loud Oga News & TV is 
+          intended for solely for general informational purposes. 
+          While we strive to provide accurate and up-to-date information,
+           we make no representations or warranties of any kind,
+            express or implied, regarding the completeness, accuracy, 
+            reliability, suitability, or availability of the information, 
+            education, and news reproting purposes. While we are committed
+             to providing accurate, timely, and credible information, 
+             Loud Oga News & TV makes no guarantees, representations, 
+             or warranties, wether express or implied, regarding the accuracy, 
+             completeness, realibility, suitability, or availability of any content, 
+             information, products, services, or materials featured on this 
+             platform.
         </p>
 
         <h2 className="mt-10 mb-4 text-3xl font-bold">
@@ -52,19 +46,6 @@ export default function DisclaimerPage() {
           content, products, services, privacy policies, or
           practices of any external websites and accept no
           responsibility for their content or activities.
-        </p>
-
-        <h2 className="mt-10 mb-4 text-3xl font-bold">
-          Professional Advice
-        </h2>
-
-        <p>
-          Content published on this website should not be
-          considered legal, financial, medical, business,
-          or professional advice. Users are encouraged to
-          seek qualified professional guidance before making
-          decisions based on information obtained from this
-          website.
         </p>
 
         <h2 className="mt-10 mb-4 text-3xl font-bold">

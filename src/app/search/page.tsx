@@ -1,3 +1,5 @@
+import { client } from "@/lib/sanity";
+import { searchPostsQuery } from "@/lib/queries";
 import NewsCard from "@/components/news/NewsCard";
 
 type SearchProps = {
@@ -11,7 +13,15 @@ export default async function SearchPage({
 }: SearchProps) {
   const { q } = await searchParams;
 
-  const posts: any[] = [];
+  const posts =
+    q && q.trim().length > 0
+      ? await client.fetch(
+          searchPostsQuery,
+          {
+            search: q,
+          }
+        )
+      : [];
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-12">
@@ -28,18 +38,18 @@ export default async function SearchPage({
           name="q"
           defaultValue={q}
           placeholder="Search news..."
-          className="w-full rounded-lg border p-4"
+          className="w-full rounded-xl border p-4"
         />
       </form>
 
       {q && (
-        <p className="mb-6 text-slate-600">
-          Results for:{" "}
-          <strong>{q}</strong>
+        <p className="mb-8 text-slate-600">
+          Search results for{" "}
+          <strong>"{q}"</strong>
         </p>
       )}
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post: any) => (
           <NewsCard
             key={post._id}
@@ -49,9 +59,15 @@ export default async function SearchPage({
       </div>
 
       {q && posts.length === 0 && (
-        <p>
-          No articles found.
-        </p>
+        <div className="rounded-xl border bg-slate-50 p-8 text-center">
+          <h2 className="mb-2 text-2xl font-bold">
+            No articles found
+          </h2>
+
+          <p className="text-slate-600">
+            Try searching with different keywords.
+          </p>
+        </div>
       )}
     </main>
   );

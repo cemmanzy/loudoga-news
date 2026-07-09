@@ -21,32 +21,77 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
 
     {
-      url: "https://loudoganews.com/news",
+      url: "https://loudoganews.com/category/news",
       lastModified: new Date(),
     },
 
     {
-      url: "https://loudoganews.com/hot-stories",
+      url: "https://loudoganews.com/category/business",
       lastModified: new Date(),
     },
 
     {
-      url: "https://loudoganews.com/spotlight",
+      url: "https://loudoganews.com/category/politics",
       lastModified: new Date(),
     },
 
     {
-      url: "https://loudoganews.com/interviews",
+      url: "https://loudoganews.com/category/technology",
       lastModified: new Date(),
     },
 
     {
-      url: "https://loudoganews.com/views",
+      url: "https://loudoganews.com/category/sports",
       lastModified: new Date(),
     },
 
     {
-      url: "https://loudoganews.com/search",
+      url: "https://loudoganews.com/category/entertainment",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/category/hot-stories",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/category/interviews",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/category/spotlight",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/category/views",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/about",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/contact",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/privacy-policy",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/newsroom",
+      lastModified: new Date(),
+    },
+
+    {
+      url: "https://loudoganews.com/disclaimer",
       lastModified: new Date(),
     },
 
