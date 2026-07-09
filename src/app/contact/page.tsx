@@ -35,8 +35,8 @@ export default function ContactPage() {
             </p>
 
             <p>
-              <strong>Website:</strong>{" "}
-              www.loudoganews.com
+              <strong>Mobile Phone:</strong>{" "}
+              09076231436
             </p>
 
             <p>
