@@ -1,3 +1,4 @@
+export const revalidate = 60;
 import { client } from "@/lib/sanity";
 import { searchPostsQuery } from "@/lib/queries";
 import NewsCard from "@/components/news/NewsCard";
